@@ -25,7 +25,6 @@ public class Examples {
 		for(int i=0; i < size; i++) {
 			System.out.println(" Element " + (i + 1) + " - " + list.get(i));;
 		}
-		System.out.println(" Counter = " + LinkedList.counter);
 		
 	}
 	public static void main(String[] args) {
