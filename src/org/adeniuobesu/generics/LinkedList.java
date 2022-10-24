@@ -45,8 +45,9 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public T remove(int index) {
 		if(isEmpty()) return null;
+		T removed;
 		if(index == 0) {
-			T removed = value;
+			removed = value;
 			if(next == null) {
 				value = null;
 			} else {
@@ -57,7 +58,7 @@ public class LinkedList<T> implements List<T> {
 		} else if(index == 1) {
 			if(next == null)
 				return null;
-			T removed = next.value;
+			removed = next.value;
 			next = next.next;
 			return removed;
 		} else if(next != null)
