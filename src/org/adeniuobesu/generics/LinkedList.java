@@ -48,21 +48,24 @@ public class LinkedList<T> implements List<T> {
 		T removed;
 		if(index == 0) {
 			removed = value;
-			if(next == null) {
+			if(next == null) { //Remove the first node & get rid of the linkedList
 				value = null;
-			} else {
+			} else { //Remove the first node and keep track of the remaining parts
 				value = next.value;
 				next = next.next;
 			}
 			return removed;
 		} else if(index == 1) {
-			if(next == null)
+			if(next == null) // Nothing to remove
 				return null;
+			// Remove the second node
 			removed = next.value;
 			next = next.next;
 			return removed;
 		} else if(next != null)
+			// index not in [0-1] and the next node has a next
 			return next.remove(index - 1);
+		// index not in [0-1] and the next node has no next
 		else return null;
 	}
 	@Override
