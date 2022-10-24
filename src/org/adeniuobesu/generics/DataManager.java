@@ -14,7 +14,24 @@ package org.adeniuobesu.generics;
  * Oct 24, 2022
  */
 public class DataManager {
+	private List<Double> data;
 	
 	public DataManager() {
+	}
+	
+	public void add(double item) {
+		data.add(item);
+	}
+	
+	public void sort() {
+		
+	}
+	
+	public void save(String target) {
+		
+	}
+	
+	public void load(String source) {
+		
 	}
 }
