@@ -4,22 +4,21 @@ import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.adeniuobesu.generics.LinkedList;
 import org.adeniuobesu.generics.List;
+import org.adeniuobesu.generics.Vector;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 /**
  * @author MOUKHAFI Anass
  * 
  * Oct 24, 2022
  */
-public class LinkedListTests {
+public class VectorTests {
 	List<Integer> list;
 	@BeforeEach
 	void setUp() {
-		list = new LinkedList<>();
+		list = new Vector<>();
 	}
 	
 	@Test
@@ -45,13 +44,13 @@ public class LinkedListTests {
 		
 		int e0 = (int) list.remove(0);
 		int e1 = (int) list.remove(3);
-		Object e3 = list.remove(5);
+		Integer e2 = list.remove(5);
 		
 		assertAll(
 			() -> assertEquals(20, e0),
 			() -> assertEquals(18, e1),
 			() -> assertEquals(3, list.size()),
-			() -> assertNull(e3)
+			() -> assertNull(e2)
 		);
 	}
 	
