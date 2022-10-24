@@ -25,8 +25,7 @@ public class LinkedList<T> implements List<T> {
 			value = item;
 		else if( next==null )
 			next = new LinkedList<T>(item);
-			else
-				next.add(item);
+			else next.add(item);
 	}
 
 	@Override
