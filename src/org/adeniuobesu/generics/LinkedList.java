@@ -55,12 +55,15 @@ public class LinkedList<T> implements List<T> {
 				next = next.next;
 			}
 			return removed;
-		} else if(index == 1){
-			if(next == null) return null;
+		} else if(index == 1) {
+			if(next == null)
+				return null;
 			T removed = next.value;
 			next = next.next;
 			return removed;
-		} else return next.remove(index - 1);
+		} else if(next != null)
+			return next.remove(index - 1);
+		else return null;
 	}
 	@Override
 	public boolean isEmpty() {
