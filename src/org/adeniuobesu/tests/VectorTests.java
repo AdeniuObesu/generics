@@ -21,12 +21,27 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Tests de Vector")
 public class VectorTests {
 	List<Integer> listInteger;
-	List<Complexe> listComplexe;
+	Vector<Complexe> listComplexe;
 	
 	@BeforeEach
 	void setUp() {
 		listInteger = new Vector<>();
 		listComplexe = new Vector<>();
+	}
+	
+	@Test
+	@DisplayName("Test de clone")
+	void testClone() {
+		Complexe c = new Complexe(9, 3);
+		listComplexe.add(c);
+		listComplexe.add(new Complexe(2, 4));
+		@SuppressWarnings("unchecked")
+		List<Complexe> copy = (List<Complexe>) listComplexe.clone();
+		
+		assertAll(
+				() -> assertEquals(copy.get(0), c),
+				() -> assertEquals(copy.size(), 2)
+			);
 	}
 	
 	@Test

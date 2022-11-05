@@ -21,6 +21,14 @@ public class LinkedList<T> implements List<T> {
 		this.next = null;
 	}
 	
+	public Object clone() {
+		List<T> clone = new LinkedList<>();
+		int size = size();
+		for(int i=0; i<size; i++)
+			clone.add(get(i));
+		return clone;
+	}
+	
 	/*
 	 * Tells if the argument is the index of an existing element
 	 * */

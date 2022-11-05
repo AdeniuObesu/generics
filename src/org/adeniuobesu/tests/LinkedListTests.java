@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Tests de LinkedList")
 public class LinkedListTests {
 	List<Integer> listInteger;
-	List<Complexe> listComplexe;
+	LinkedList<Complexe> listComplexe;
 	@BeforeEach
 	void setUp() {
 		listInteger = new LinkedList<>();
@@ -29,12 +29,29 @@ public class LinkedListTests {
 	}
 	
 	@Test
+	@DisplayName("Test de clone")
+	void testClone() {
+		Complexe c = new Complexe(9, 3);
+		listComplexe.add(c);
+		listComplexe.add(new Complexe(2, 4));
+		@SuppressWarnings("unchecked")
+		List<Complexe> copy = (List<Complexe>) listComplexe.clone();
+		
+		assertAll(
+				() -> assertEquals(copy.get(0), c),
+				() -> assertEquals(copy.size(), 2)
+			);
+	}
+	
+	@Test
+	@DisplayName("Test de size")
 	void testSize() {
 		// ASSIGN | ACT | ASSERT (AAA)
 		assertEquals(0, listInteger.size());
 	}
 	
 	@Test
+	@DisplayName("Test de add")
 	void testAdd() {
 		listInteger.add(3);
 		listInteger.add(2);
@@ -45,6 +62,7 @@ public class LinkedListTests {
 	}
 	
 	@Test
+	@DisplayName("Test de remove")
 	void testRemove() {
 		listInteger.add(20);
 		listInteger.add(25);

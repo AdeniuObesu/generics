@@ -10,6 +10,15 @@ public class Vector<T> implements List<T> {
 	public Vector() {
 		data = new Object[0];
 	}
+	
+	public Object clone() {
+		LinkedList<T> clone = new LinkedList<>();
+		int size = size();
+		for(int i=0; i<size; i++)
+			clone.add(get(i));
+		return clone;
+	}
+	
 	private boolean isElementIndex(int index) {
 		return ( index > -1 && index < data.length);
 	}
