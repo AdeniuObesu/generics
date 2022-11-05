@@ -1,8 +1,5 @@
 package org.adeniuobesu.generics;
 
-import java.sql.Time;
-import java.time.LocalTime;
-
 /**
  * @author MOUKHAFI Anass
  * LinkedList cannot start with a null element.
@@ -51,7 +48,8 @@ public class LinkedList<T> implements List<T> {
 		else {
 			if( next==null )
 				next = new LinkedList<T>(item);
-			else next.add(item);
+			else
+				next.add(item);
 		}
 	}
 
@@ -175,7 +173,13 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public T set(int index, T o) {
 		checkElementIndex(index);
-		T oldVal = get(index);
-		return null;
+		T oldVal = null;
+		if(index == 0) {
+			oldVal = value;
+			value = o;
+		} else {
+			next.set(index - 1, o);
+		}
+		return oldVal;
 	}
 }

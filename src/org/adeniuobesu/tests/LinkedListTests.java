@@ -1,10 +1,9 @@
 package org.adeniuobesu.tests;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.adeniuobesu.generics.LinkedList;
 import org.adeniuobesu.generics.List;
@@ -55,13 +54,17 @@ public class LinkedListTests {
 		
 		int e0 = (int) listInteger.remove(0);
 		int e1 = (int) listInteger.remove(3);
-		Object e3 = listInteger.remove(5);
 		
 		assertAll(
 			() -> assertEquals(20, e0),
 			() -> assertEquals(18, e1),
 			() -> assertEquals(3, listInteger.size()),
-			() -> assertNull(e3)
+			() -> assertThrowsExactly(
+					IndexOutOfBoundsException.class,
+					() -> {
+						listInteger.remove(5);
+					}
+				)
 		);
 	}
 	
@@ -129,6 +132,17 @@ public class LinkedListTests {
 
 		assertEquals(3, listComplexe.indexOf(null, 0));
 		assertEquals(1, listComplexe.indexOf(c, 1));
+	}
+	
+	@Test
+	@DisplayName("Test de set element a un index")
+	void testSetInAnIndex() {
+		Complexe c = new Complexe(21, 10);
+
+		listComplexe.add(c);
+		listComplexe.add(new Complexe());
+		
+		assertEquals(listComplexe.set(0, new Complexe(3, 9)), c);
 	}
 	
 	@AfterEach

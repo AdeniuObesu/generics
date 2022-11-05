@@ -131,6 +131,18 @@ public class VectorTests {
 		assertEquals(-1, listComplexe.indexOf(null, 4));
 	}
 	
+	@Test
+	@DisplayName("Test de set Element a un index")
+	void testSetElementInIndex() {
+		Complexe c = new Complexe(21, 10);
+
+		listComplexe.add(new Complexe(3, 34));
+		listComplexe.add(new Complexe());
+		listComplexe.add(null);
+		
+		assertNull(listComplexe.set(2, c));
+	}
+	
 	@AfterEach
 	void tearDown() {
 		listInteger = null;
