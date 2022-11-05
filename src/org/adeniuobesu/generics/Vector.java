@@ -93,10 +93,28 @@ public class Vector<T> implements List<T> {
 	
 	@Override
 	public int indexOf(Object o) {
-		for(int i=0; i<data.length; i++) {
-			if(get(i).equals(o))
-				return i;
+		return indexOf(o, 0);
+	}
+	
+	@Override
+	public int indexOf(Object o, int index) {
+		if(o==null) {
+			for(int i=index; i<data.length; i++) {
+				if(data[i] == null)
+					return i;
+			}
+		} else {
+			for(int i=index; i<data.length; i++) {
+				if(o.equals(data[i]))
+					return i;
+			}
 		}
 		return -1;
+	}
+	
+	@Override
+	public Object set(int index, Object o) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

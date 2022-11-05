@@ -31,14 +31,17 @@ public class LinkedListTests {
 	@Test
 	void testSize() {
 		// ASSIGN | ACT | ASSERT (AAA)
-		assertEquals( 0, listInteger.size());
+		assertEquals(0, listInteger.size());
 	}
 	
 	@Test
 	void testAdd() {
 		listInteger.add(3);
 		listInteger.add(2);
+		listComplexe.add(null);
+		
 		assertEquals(2, listInteger.size());
+		assertEquals(0, listComplexe.size());
 	}
 	
 	@Test
@@ -109,6 +112,22 @@ public class LinkedListTests {
 
 		assertEquals(1, listComplexe.indexOf(c));
 		assertEquals(-1, listComplexe.indexOf(null));
+	}
+	
+	@Test
+	@DisplayName("Test de indexOf a partir d'un index")
+	void testIndexOfStratingFromAnIndex() {
+		Complexe c = new Complexe(21, 10);
+
+		listComplexe.add(null); // Does nothing
+		
+		listComplexe.add(new Complexe(3, 34));
+		listComplexe.add(c);
+		listComplexe.add(new Complexe());
+		listComplexe.add(null);
+
+		assertEquals(3, listComplexe.indexOf(null, 0));
+		assertEquals(1, listComplexe.indexOf(c, 1));
 	}
 	
 	@AfterEach

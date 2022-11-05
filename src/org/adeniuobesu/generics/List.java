@@ -26,4 +26,10 @@ public interface List<T> {
 	boolean equals(Object o);
 	
 	int indexOf(Object o);
+	
+	int indexOf(Object o, int index);
+	
+	Object set(int index, Object o);
+
+	
 }

@@ -114,6 +114,23 @@ public class VectorTests {
 		assertEquals(-1, listComplexe.indexOf(null));
 	}
 	
+	@Test
+	@DisplayName("Test de indexOf a partir d'un index")
+	void testIndexOfStartingFromAnIndex() {
+		Complexe c = new Complexe(21, 10);
+
+		listComplexe.add(new Complexe(3, 34));
+		listComplexe.add(c);
+		listComplexe.add(new Complexe());
+		listComplexe.add(null);
+		listComplexe.add(new Complexe(4, 16));
+		listComplexe.add(new Complexe(3, 9));
+
+		assertEquals(1, listComplexe.indexOf(c, 1));
+		assertEquals(3, listComplexe.indexOf(null, 1));
+		assertEquals(-1, listComplexe.indexOf(null, 4));
+	}
+	
 	@AfterEach
 	void tearDown() {
 		listInteger = null;

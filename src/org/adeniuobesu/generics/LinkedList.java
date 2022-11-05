@@ -1,7 +1,12 @@
 package org.adeniuobesu.generics;
+
+import java.sql.Time;
+import java.time.LocalTime;
+
 /**
  * @author MOUKHAFI Anass
- * 
+ * LinkedList cannot start with a null element.
+ * If the first element is null, it means we have nothing
  * Oct 24, 2022
  */
 public class LinkedList<T> implements List<T> {
@@ -10,22 +15,26 @@ public class LinkedList<T> implements List<T> {
 	private LinkedList<T> next;
 	
 	public LinkedList() {
-		value = null;
-		next = null;
+		this.value = null;
+		this.next = null;
 	}
 
 	public LinkedList(T value) {
 		this.value = value;
-		next = null;
+		this.next = null;
 	}
 
 	@Override
 	public void add(T item) {
-		if(isEmpty())
-			value = item;
-		else if( next==null )
-			next = new LinkedList<T>(item);
+		if(isEmpty()) {
+			if(item != null)
+				value = item;
+		}
+		else {
+			if( next==null )
+				next = new LinkedList<T>(item);
 			else next.add(item);
+		}
 	}
 
 	@Override
@@ -114,18 +123,38 @@ public class LinkedList<T> implements List<T> {
 	
 	@Override
 	public int indexOf(Object o) {
-		int index = 0;
+		return indexOf(o, 0);
+	}
+	
+	@Override
+	public int indexOf(Object o, int index) {
+		int position = 0;
 		if(o == null) {
-			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, index ++) {
-				if(cursor.value == null)
-					return index;
+			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, ++position) {
+				if(index > position) {
+					continue;
+				} else {
+					if(cursor.value == null) {
+						return position;
+					}
+				}
 			}
 		} else {
-			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, index ++) {
-				if(o.equals(cursor.value))
-					return index;
+			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, ++position) {
+				if(index > position) {
+					continue;
+				} else {
+					if(o.equals(cursor.value))
+						return position;
+				}
 			}
 		}
 		return -1;
+	}
+
+	@Override
+	public Object set(int index, Object o) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
