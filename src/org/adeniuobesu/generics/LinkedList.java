@@ -68,8 +68,64 @@ public class LinkedList<T> implements List<T> {
 		// index not in [0-1] and the next node has no next
 		else return null;
 	}
+	
 	@Override
 	public boolean isEmpty() {
 		return (value == null && next == null);
+	}
+	
+	@Override
+	public boolean contains(Object o) {
+		if(o == null)
+			return false;
+		else {
+			if(value.equals(o))
+				return true;
+			if(next == null)
+				return false;
+			return next.contains(o);
+		}
+	}
+	
+	@Override
+	public void clear() {
+		value = null;
+		if(next != null)
+			next.clear();
+			next = null;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o == null)
+			return false;
+		if(o instanceof LinkedList) {
+			@SuppressWarnings("unchecked")
+			List<T> obj = (List<T>) o;
+			if(size() != obj.size())
+				return false;
+			for(int i=0; i<size(); i++) {
+				if(! get(i).equals(obj.get(i)) )
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	@Override
+	public int indexOf(Object o) {
+		int index = 0;
+		if(o == null) {
+			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, index ++) {
+				if(cursor.value == null)
+					return index;
+			}
+		} else {
+			for(LinkedList<T> cursor = this; cursor != null; cursor = cursor.next, index ++) {
+				if(o.equals(cursor.value))
+					return index;
+			}
+		}
+		return -1;
 	}
 }

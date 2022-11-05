@@ -54,5 +54,49 @@ public class Vector<T> implements List<T> {
 	public boolean isEmpty() {
 		return (data.length == 0);
 	}
+	
+	@Override
+	public boolean contains(Object o) {
+		if(o == null)
+			return false;
+		for(Object element : data) {
+			if(element.equals(o))
+				return true;
+		}
+		return false;
+	}
 
+	@Override
+	public void clear() {
+		if(! isEmpty() )
+			for(int i = data.length-1; i>0; i--)
+				data[i] = null;
+		data = new Object[0];
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o == null)
+			return false;
+		if(o instanceof Vector) {
+			@SuppressWarnings("unchecked")
+			List<T> obj = (List<T>) o;
+			if(size() != obj.size())
+				return false;
+			for(int i=0; i<size(); i++) {
+				if(! get(i).equals(obj.get(i)) )
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	@Override
+	public int indexOf(Object o) {
+		for(int i=0; i<data.length; i++) {
+			if(get(i).equals(o))
+				return i;
+		}
+		return -1;
+	}
 }
