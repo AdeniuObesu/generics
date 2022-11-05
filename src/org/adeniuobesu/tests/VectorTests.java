@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.adeniuobesu.generics.List;
 import org.adeniuobesu.generics.Vector;
@@ -54,13 +55,17 @@ public class VectorTests {
 		
 		int e0 = (int) listInteger.remove(0);
 		int e1 = (int) listInteger.remove(3);
-		Integer e2 = listInteger.remove(5);
 		
 		assertAll(
 			() -> assertEquals(20, e0),
 			() -> assertEquals(18, e1),
 			() -> assertEquals(3, listInteger.size()),
-			() -> assertNull(e2)
+			() -> assertThrowsExactly(
+					IndexOutOfBoundsException.class,
+					() -> {
+						listInteger.remove(5);
+					}
+				)
 		);
 	}
 	
