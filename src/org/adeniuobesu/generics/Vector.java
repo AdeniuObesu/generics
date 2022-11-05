@@ -10,7 +10,16 @@ public class Vector<T> implements List<T> {
 	public Vector() {
 		data = new Object[0];
 	}
-	
+	private boolean isElementIndex(int index) {
+		return ( index > -1 && index < data.length);
+	}
+	private String outOfBoundsMsg(int index) {
+		return "Index : " + index + " , Size : "+size();
+	}
+	private void checkElementIndex(int index) {
+		if(!isElementIndex(index))
+			throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+	}
 	@Override
 	synchronized public void add(T item) {
 		Object[] temp = new Object[data.length + 1];
@@ -23,6 +32,7 @@ public class Vector<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
+		checkElementIndex(index);
 		return (T) data[index];
 	}
 
@@ -34,8 +44,7 @@ public class Vector<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	synchronized public T remove(int index) {
-		if(index >= data.length)
-			return null;
+		checkElementIndex(index);
 		Object[] temp = new Object[data.length - 1];
 		
 		for(int i = 0; i < index; i++)
@@ -113,8 +122,10 @@ public class Vector<T> implements List<T> {
 	}
 	
 	@Override
-	public Object set(int index, Object o) {
-		// TODO Auto-generated method stub
-		return null;
+	public T set(int index, T o) {
+		checkElementIndex(index);
+		T oldVal = get(index);
+		data[index] = o;
+		return oldVal;
 	}
 }

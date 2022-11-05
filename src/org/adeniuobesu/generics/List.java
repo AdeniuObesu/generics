@@ -29,7 +29,7 @@ public interface List<T> {
 	
 	int indexOf(Object o, int index);
 	
-	Object set(int index, Object o);
+	T set(int index, T o);
 
 	
 }

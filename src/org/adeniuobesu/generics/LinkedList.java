@@ -23,7 +23,25 @@ public class LinkedList<T> implements List<T> {
 		this.value = value;
 		this.next = null;
 	}
-
+	
+	/*
+	 * Tells if the argument is the index of an existing element
+	 * */
+	private boolean isElementIndex(int index) {
+		return (index > -1 && index < size());
+	}
+	/*
+	 * Constructs an IndexOutOfBoundsException detail message
+	 * */
+	private String outOfBoundsMsg(int index) {
+		return "Index : " + index + ", Size :" + size();
+	}
+	
+	private void checkElementIndex(int index) {
+		if(!isElementIndex(index))
+			throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+	}
+	
 	@Override
 	public void add(T item) {
 		if(isEmpty()) {
@@ -39,6 +57,7 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T get(int index) {
+		checkElementIndex(index);
 		if(index == 0) return value;
 		else if(next != null) return next.get(index - 1);
 		else return null;
@@ -53,6 +72,7 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T remove(int index) {
+		checkElementIndex(index);
 		if(isEmpty()) return null;
 		T removed;
 		if(index == 0) {
@@ -153,8 +173,9 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	@Override
-	public Object set(int index, Object o) {
-		// TODO Auto-generated method stub
+	public T set(int index, T o) {
+		checkElementIndex(index);
+		T oldVal = get(index);
 		return null;
 	}
 }
