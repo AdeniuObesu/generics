@@ -1,5 +1,6 @@
 package org.adeniuobesu.tests;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -178,6 +179,23 @@ public class VectorTests {
 		}
 		
 		assertEquals(10, sum);
+	}
+	
+	@Test
+	@DisplayName("Test de subList d'un interval donne")
+	void testSubList() {
+		listInteger.add(1);
+		listInteger.add(2);
+		listInteger.add(3);
+		listInteger.add(4);
+		listInteger.add(5);
+		
+		assertAll(
+				()->assertNotNull(listInteger.subList(1, 3)),
+				()->assertEquals(3, listInteger.subList(1, 3).size()),
+				()->assertNull(listInteger.subList(3, 1)),
+				()->assertNull(listInteger.subList(3, 6))
+			);
 	}
 	
 	@AfterEach

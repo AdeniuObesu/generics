@@ -220,4 +220,18 @@ public class LinkedList<T> implements List<T> {
 			return lastReturned.value;
 		}
 	}
+	@Override
+	public List<T> subList(int from, int to) {
+		if(from > to || from < 0 || to >= size())
+			return null;
+		List<T> subList = new LinkedList<>();
+		for(int i=from; i<=to; i++) {
+			subList.add(get(i));
+		}
+		return subList;
+	}
+	@Override
+	public Object[] toArray() {
+		return null;
+	}
 }

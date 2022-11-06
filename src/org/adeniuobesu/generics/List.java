@@ -32,5 +32,7 @@ public interface List<T> extends Iterable<T> {
 	
 	T set(int index, T o);
 
+	List<T> subList(int from, int to);
 	
+	Object[] toArray();
 }

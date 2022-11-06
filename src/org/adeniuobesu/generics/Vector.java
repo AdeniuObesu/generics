@@ -164,4 +164,20 @@ public class Vector<T> implements List<T> {
 			return get(lastReturned);
 		}
 	}
+	/*
+	 * returns all the elements lies within a given range [from - to]
+	 * */
+	@Override
+	public List<T> subList(int from, int to) {
+		if(from > to || from < 0 || to >= size()) // Then nothing to return
+			return null;
+		List<T> subList = new Vector<>();
+		for(int i = from; i <= to; i++)
+			subList.add(get(i));
+		return subList;
+	}
+	@Override
+	public Object[] toArray() {
+		return null;
+	}
 }
