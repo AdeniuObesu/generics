@@ -142,7 +142,7 @@ public class Vector<T> implements List<T> {
 	}
 
 	@Override
-	public Iterator<T> iterator() {
+	public synchronized Iterator<T> iterator() {
 		return new Iter();
 	}
 	private class Iter implements Iterator<T> {
@@ -157,8 +157,9 @@ public class Vector<T> implements List<T> {
 		}
 		@Override
 		public T next() {
+			// TODO: This section of code must be Thread-safe
 			int i = cursor;
-			cursor = i+1;
+			cursor = i + 1;
 			lastReturned = i;
 			return get(lastReturned);
 		}
