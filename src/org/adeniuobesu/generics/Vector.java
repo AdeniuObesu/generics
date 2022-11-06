@@ -1,4 +1,7 @@
 package org.adeniuobesu.generics;
+
+import java.util.Iterator;
+
 /**
  * @author MOUKHAFI Anass
  * 
@@ -136,5 +139,27 @@ public class Vector<T> implements List<T> {
 		T oldVal = get(index);
 		data[index] = o;
 		return oldVal;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new Iter();
+	}
+	private class Iter implements Iterator<T> {
+		private int cursor; // Index of the next element to return
+		private int lastReturned = -1; // Index of the recently returned element, -1 if no such
+		
+		public Iter() {
+		}
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 }

@@ -1,5 +1,8 @@
 package org.adeniuobesu.generics;
 
+import java.util.Iterator;
+
+
 /**
  * @author MOUKHAFI Anass
  * LinkedList cannot start with a null element.
@@ -189,5 +192,26 @@ public class LinkedList<T> implements List<T> {
 			next.set(index - 1, o);
 		}
 		return oldVal;
+	}
+	
+
+	@Override
+	public Iterator<T> iterator() {
+		return new Iter();
+	}
+	private class Iter implements Iterator<T> {
+		
+		public Iter() {
+		}
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 }
