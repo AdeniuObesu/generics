@@ -3,6 +3,8 @@
  */
 package org.adeniuobesu.generics;
 
+import org.adeniuobesu.model.Complexe;
+
 /**
  * @author MOUKHAFI Anass
  * 

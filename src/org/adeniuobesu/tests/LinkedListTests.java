@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.adeniuobesu.generics.LinkedList;
 import org.adeniuobesu.generics.List;
+import org.adeniuobesu.generics.Vector;
 import org.adeniuobesu.model.Complexe;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -214,6 +215,24 @@ public class LinkedListTests {
 				()->assertEquals(5, array.length)
 			);
 	}
+	
+	@Test
+	@DisplayName("Test de containsAll")
+	void testContainsAll() {
+		listInteger.add(100);
+		listInteger.add(1);
+		listInteger.add(9);
+		listInteger.add(3);
+		listInteger.add(8);
+		
+		List<Integer> param = new Vector<Integer>();
+		param.add(3);
+		param.add(100);
+		param.add(9);
+		
+		assertTrue(listInteger.containsAll(param));
+	}
+	
 	@AfterEach
 	void tearDown() {
 		listInteger = null;

@@ -48,7 +48,6 @@ public class VectorTests {
 	@Test
 	@DisplayName("Test de la taille d'un vector")
 	void testSize() {
-		// ASSIGN | ACT | ASSERT (AAA)
 		assertEquals( 0, listInteger.size());
 	}
 	
@@ -213,6 +212,23 @@ public class VectorTests {
 				()->assertNotNull(array),
 				()->assertEquals(5, array.length)
 			);
+	}
+	
+	@Test
+	@DisplayName("Test de containsAll")
+	void testContainsAll() {
+		listInteger.add(100);
+		listInteger.add(1);
+		listInteger.add(9);
+		listInteger.add(3);
+		listInteger.add(8);
+		
+		List<Integer> param = new Vector<Integer>();
+		param.add(3);
+		param.add(100);
+		param.add(9);
+		
+		assertTrue(listInteger.containsAll(param));
 	}
 	
 	@AfterEach

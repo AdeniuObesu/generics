@@ -22,6 +22,14 @@ public interface List<T> extends Iterable<T> {
 	
 	boolean contains(Object o);
 	
+	default boolean containsAll(List<T> list) {
+		for(T item : list) {
+			if(!this.contains(item))
+				return false;
+		}
+		return true;
+	}
+	
 	void clear();
 	
 	boolean equals(Object o);
@@ -34,5 +42,12 @@ public interface List<T> extends Iterable<T> {
 
 	List<T> subList(int from, int to);
 	
-	Object[] toArray();
+	default Object[] toArray() {
+		int size = size();
+		Object[] array = new Object[size];
+		for(int i=0; i<size; i++) {
+			array[i] = get(i);
+		}
+		return array;
+	}
 }

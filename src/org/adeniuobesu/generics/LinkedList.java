@@ -220,6 +220,7 @@ public class LinkedList<T> implements List<T> {
 			return lastReturned.value;
 		}
 	}
+	
 	@Override
 	public List<T> subList(int from, int to) {
 		if(from > to || from < 0 || to >= size())
@@ -229,15 +230,5 @@ public class LinkedList<T> implements List<T> {
 			subList.add(get(i));
 		}
 		return subList;
-	}
-	@Override
-	public Object[] toArray() {
-		int size = size(), i=0;
-		Object[] array = new Object[size];
-		while(i!=size) {
-			array[i] = get(i);
-			i++;
-		}
-		return array;
 	}
 }

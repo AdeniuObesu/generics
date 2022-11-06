@@ -36,10 +36,13 @@ public class Complexe {
 	
 	@Override
 	public String toString() {
-		return (
-				"Complexe " +
-				"( x : " + x + " , y : " + y + ")"
-			);
+		String representation = x +"";
+		if(y<0)
+			representation = representation.concat("-");
+		else if (y>0)
+			representation = representation.concat("+");
+		else return representation;
+		return representation.concat("i" + (-y));
 	}
 	
 	@Override

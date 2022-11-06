@@ -176,13 +176,4 @@ public class Vector<T> implements List<T> {
 			subList.add(get(i));
 		return subList;
 	}
-	@Override
-	public Object[] toArray() {
-		int size = size();
-		Object[] array = new Object[size];
-		for(int i=0; i<size; i++) {
-			array[i] = get(i);
-		}
-		return array;
-	}
 }
