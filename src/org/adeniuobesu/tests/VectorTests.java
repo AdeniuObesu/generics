@@ -198,6 +198,23 @@ public class VectorTests {
 			);
 	}
 	
+	@Test
+	@DisplayName("Test de toArray de Vector")
+	void testToArray() {
+		listInteger.add(1);
+		listInteger.add(2);
+		listInteger.add(3);
+		listInteger.add(4);
+		listInteger.add(5);
+		
+		Object[] array = listInteger.toArray();
+		
+		assertAll(
+				()->assertNotNull(array),
+				()->assertEquals(5, array.length)
+			);
+	}
+	
 	@AfterEach
 	void tearDown() {
 		listInteger = null;

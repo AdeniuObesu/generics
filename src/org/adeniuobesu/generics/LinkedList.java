@@ -232,6 +232,12 @@ public class LinkedList<T> implements List<T> {
 	}
 	@Override
 	public Object[] toArray() {
-		return null;
+		int size = size(), i=0;
+		Object[] array = new Object[size];
+		while(i!=size) {
+			array[i] = get(i);
+			i++;
+		}
+		return array;
 	}
 }

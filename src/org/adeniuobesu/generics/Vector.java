@@ -178,6 +178,11 @@ public class Vector<T> implements List<T> {
 	}
 	@Override
 	public Object[] toArray() {
-		return null;
+		int size = size();
+		Object[] array = new Object[size];
+		for(int i=0; i<size; i++) {
+			array[i] = get(i);
+		}
+		return array;
 	}
 }
