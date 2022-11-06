@@ -13,7 +13,7 @@ public class Examples {
 		exp01();
 	}
 	void exp01() {
-		LinkedList<Integer> list = new LinkedList<>();
+		List<Integer> list = new Vector<>();
 		list.add(3);
 		list.add(2);
 		list.add(10);
@@ -22,8 +22,11 @@ public class Examples {
 		
 		int size = list.size();
 		
-		for(int i=0; i < size; i++) {
-			System.out.println(" Element " + (i + 1) + " - " + list.get(i));
+//		for(int i=0; i < size; i++) {
+//			System.out.println(" Element " + (i + 1) + " - " + list.get(i));
+//		}
+		for(Integer item : list) {
+			System.out.println(" Element " + item);
 		}
 		
 	}

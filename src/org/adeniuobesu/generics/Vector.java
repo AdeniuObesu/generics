@@ -146,20 +146,21 @@ public class Vector<T> implements List<T> {
 		return new Iter();
 	}
 	private class Iter implements Iterator<T> {
-		private int cursor; // Index of the next element to return
+		private int cursor = 0; // Index of the next element to return
 		private int lastReturned = -1; // Index of the recently returned element, -1 if no such
 		
 		public Iter() {
 		}
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			return cursor != size();
 		}
 		@Override
 		public T next() {
-			// TODO Auto-generated method stub
-			return null;
+			int i = cursor;
+			cursor = i+1;
+			lastReturned = i;
+			return get(lastReturned);
 		}
 	}
 }
