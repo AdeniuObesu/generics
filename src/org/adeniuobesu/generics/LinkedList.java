@@ -3,7 +3,7 @@ package org.adeniuobesu.generics;
 /**
  * @author MOUKHAFI Anass
  * LinkedList cannot start with a null element.
- * If the first element is null, it means we have nothing
+ * If the first element is null, it means the linkedlist is empty.
  * Oct 24, 2022
  */
 public class LinkedList<T> implements List<T> {

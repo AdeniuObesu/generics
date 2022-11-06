@@ -1,10 +1,11 @@
 package org.adeniuobesu.generics;
+
 /**
  * @author MOUKHAFI Anass
  * 
  * Oct 24, 2022
  */
-public interface List<T> {
+public interface List<T> extends Iterable<T> {
 	void add(T item);
 	
 	T get(int index);
