@@ -22,13 +22,8 @@ public class Examples {
 		
 		int size = list.size();
 		
-//		for(int i=0; i < size; i++) {
-//			System.out.println(" Element " + (i + 1) + " - " + list.get(i));
-//		}
-		int i=0;
-		for(Integer item : list) {
-			System.out.println( "Element in index " + i +" : "+ item);
-			i++;
+		for(int i=0; i < size; i++) {
+			System.out.println(" Element " + (i + 1) + " - " + list.get(i));
 		}
 		
 	}

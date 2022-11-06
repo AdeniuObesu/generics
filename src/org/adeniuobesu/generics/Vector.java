@@ -157,7 +157,7 @@ public class Vector<T> implements List<T> {
 		}
 		@Override
 		public T next() {
-			// TODO: This section of code must be Thread-safe
+			// TODO: This section of code is critical and must be Thread-safe
 			int i = cursor;
 			cursor = i + 1;
 			lastReturned = i;

@@ -163,6 +163,21 @@ public class LinkedListTests {
 		assertEquals(listComplexe.set(0, new Complexe(3, 9)), c);
 	}
 	
+	@Test
+	@DisplayName("Test d'iterabilite de LinkedList")
+	void testIterability() {
+		listInteger.add(1);
+		listInteger.add(2);
+		listInteger.add(3);
+		listInteger.add(4);
+		int sum = 0;
+		
+		for(Integer element : listInteger) {
+			sum += element;
+		}
+		
+		assertEquals(10, sum);
+	}
 	@AfterEach
 	void tearDown() {
 		listInteger = null;

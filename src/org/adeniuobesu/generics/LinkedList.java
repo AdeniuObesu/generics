@@ -1,7 +1,6 @@
 package org.adeniuobesu.generics;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 
 /**
@@ -201,20 +200,24 @@ public class LinkedList<T> implements List<T> {
 		return new Iter();
 	}
 	private class Iter implements Iterator<T> {
-		LinkedList<T> cursor;
+		private LinkedList<T> cursor;
+		private LinkedList<T> lastReturned;
+		private int index = 0;
 		
 		public Iter() {
 			cursor = LinkedList.this;
+			lastReturned = null;
 		}
 		@Override
 		public boolean hasNext() {
-			return cursor.next != null;
+			return ( index < size() );
 		}
 		@Override
 		public T next() {
-			T nextElement = cursor.value;
-			cursor = cursor.next; // Move forward
-			return nextElement;
+			lastReturned = cursor;
+			cursor = cursor.next;
+			++index;
+			return lastReturned.value;
 		}
 	}
 }
