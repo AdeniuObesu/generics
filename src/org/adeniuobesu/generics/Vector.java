@@ -178,6 +178,16 @@ public class Vector<T> implements List<T> {
 	}
 	@Override
 	public void add(int index, T item) {
-		//TODO : implement
+		checkElementIndex(index);
+		int size = size();
+		Object[] tmp = new Object[size+1];
+		for(int i=0; i<index; i++) {
+			tmp[i] = data[i];
+		}
+		tmp[index] = item;
+		for(int i=index+1; i<data.length; i++) {
+			tmp[i] = data[i];
+		}
+		data = tmp;
 	}
 }
