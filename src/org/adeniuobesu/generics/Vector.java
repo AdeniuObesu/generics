@@ -14,6 +14,7 @@ public class Vector<T> implements List<T> {
 		data = new Object[0];
 	}
 	
+	@Override
 	public Object clone() {
 		LinkedList<T> clone = new LinkedList<>();
 		int size = size();
@@ -177,7 +178,7 @@ public class Vector<T> implements List<T> {
 		return subList;
 	}
 	@Override
-	public void add(int index, T item) {
+	synchronized public void add(int index, T item) {
 		checkElementIndex(index);
 		int size = size();
 		Object[] tmp = new Object[size+1];
@@ -189,5 +190,6 @@ public class Vector<T> implements List<T> {
 			tmp[i] = data[i];
 		}
 		data = tmp;
+		//TODO : make add(T item) call add(int index, T item) in order to behave the same way
 	}
 }

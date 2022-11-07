@@ -16,9 +16,8 @@ public interface List<T> extends Iterable<T> {
 	
 	boolean isEmpty();
 	
-	/*
-	 * Things I added
-	 * */
+	
+	// Features I added
 	
 	boolean contains(Object o);
 	
