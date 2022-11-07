@@ -176,4 +176,8 @@ public class Vector<T> implements List<T> {
 			subList.add(get(i));
 		return subList;
 	}
+	@Override
+	public void add(int index, T item) {
+		//TODO : implement
+	}
 }

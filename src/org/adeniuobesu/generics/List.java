@@ -50,4 +50,6 @@ public interface List<T> extends Iterable<T> {
 		}
 		return array;
 	}
+	
+	void add(int index, T item);
 }

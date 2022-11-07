@@ -233,6 +233,17 @@ public class LinkedListTests {
 		assertTrue(listInteger.containsAll(param));
 	}
 	
+	@Test
+	@DisplayName("Test de add d'un objet a un certain index")
+	void testAddAtACertainIndex() {
+		listInteger.add(100);
+		listInteger.add(1);
+		listInteger.add(9);
+		listInteger.add(3);
+		listInteger.add(1, 8);
+		assertEquals(8, listInteger.get(1));
+	}
+	
 	@AfterEach
 	void tearDown() {
 		listInteger = null;

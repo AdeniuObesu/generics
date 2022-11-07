@@ -231,4 +231,18 @@ public class LinkedList<T> implements List<T> {
 		}
 		return subList;
 	}
+	/*
+	 * Adds an element in the range [0 - (size()-1)]
+	 * */
+	@Override
+	public void add(int index, T item) {
+		checkElementIndex(index);
+		if(index == 0) {
+			LinkedList<T> node;
+			node = new LinkedList<>(item);
+			node.value = value;
+			value = item;
+			next = node;
+		} else next.add(index - 1, item);
+	}
 }
