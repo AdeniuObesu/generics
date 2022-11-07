@@ -239,10 +239,10 @@ public class LinkedList<T> implements List<T> {
 		checkElementIndex(index);
 		if(index == 0) {
 			LinkedList<T> node;
-			node = new LinkedList<>(item);
+			node = new LinkedList<>();
 			node.value = value;
-			value = item;
-			next = node;
+			this.value = item;
+			this.next = node;
 		} else next.add(index - 1, item);
 	}
 }

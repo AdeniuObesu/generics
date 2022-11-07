@@ -3,7 +3,7 @@
  */
 package org.adeniuobesu.generics;
 
-/**
+/** LinkedSet class does not contains neither duplicates nor null values
  * @author MOUKHAFI Anass
  *
  * Nov 7, 2022
@@ -11,32 +11,62 @@ package org.adeniuobesu.generics;
 public class LinkedSet<T> implements Set<T> {
 
 	private T value;
-	LinkedSet<T> next;
+	private LinkedSet<T> next;
 	
-	private LinkedSet(T value) {
+	public LinkedSet(T value) {
 		this.value = value;
+		this.next = null;
 	}
+	
 	@Override
 	public int size() {
-		return 0;
+		if(next != null)
+			return 1 + next.size();
+		return 1;
 	}
 
 	@Override
 	public boolean remove(T item) {
-		// TODO Auto-generated method stub
+		if(item != null && contains(item))
+			return false;
 		return false;
 	}
 
 	@Override
 	public boolean add(T item) {
-		// TODO Auto-generated method stub
+		if(item != null && !contains(item)) {
+			if(next != null)
+				next.add(item);
+			else {
+				LinkedSet<T> node;
+				node = new LinkedSet<>(this.value); // Node has the current value
+				this.value = item;
+				this.next = node;
+			}
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean contains(T item) {
-		// TODO Auto-generated method stub
-		return false;
+		if(next == null) {
+			if(!value.equals(item))
+				return false;
+		} else {
+			if(value.equals(item))
+				return true;
+		}
+		return next.contains(item);
 	}
 	
+	@Override
+	public String toString() {
+		String line = "";
+		for(LinkedSet<T> cursor = this; cursor!=null; cursor = cursor.next) {
+			line = line.concat("-" + cursor.value);
+			
+		}
+		return line;
+	}
 }
