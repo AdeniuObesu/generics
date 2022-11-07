@@ -27,8 +27,16 @@ public class LinkedSet<T> implements Set<T> {
 
 	@Override
 	public boolean remove(T item) {
-		if(item != null && contains(item))
-			return false;
+		if(item != null && contains(item)) {
+			for(LinkedSet<T> cursor = this; cursor!=null;) {
+				if(cursor.value.equals(item)) {
+					cursor.value = cursor.next.value;
+					cursor.next = cursor.next.next;
+					return true; // Element removed
+				}
+				cursor = cursor.next;
+			}
+		}
 		return false;
 	}
 

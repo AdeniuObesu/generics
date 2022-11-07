@@ -68,6 +68,21 @@ public class LinkedSetTests {
 			);
 	}
 	
+	@Test
+	@DisplayName("Test de remove")
+	void testRemove() {
+		int value = 3;
+		setInteger.add(1);
+		setInteger.add(value);
+		setInteger.add(4);
+		
+		assertAll(
+				() -> assertTrue(setInteger.remove(value)),
+				() -> assertFalse(setInteger.remove(null)),
+				() -> assertEquals(3, setInteger.size())
+			);
+	}
+	
 	@AfterEach
 	void tearDown() {
 		setInteger = null;
