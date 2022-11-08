@@ -18,4 +18,6 @@ public interface Set<T> {
 	boolean contains(T item);
 
 	boolean isEmpty();
+	
+	void clear();
 }

@@ -130,7 +130,7 @@ public class LinkedList<T> implements List<T> {
 		value = null;
 		if(next != null)
 			next.clear();
-			next = null;
+		next = null;
 	}
 	
 	@Override

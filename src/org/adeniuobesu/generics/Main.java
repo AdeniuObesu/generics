@@ -4,10 +4,11 @@
 package org.adeniuobesu.generics;
 
 /** Elle s'agit de la classe principale des tests
- * qui regroupe l'ensemble des traitements sur :
- * LinkedList et ses fonctionnalites.
- * Vector et ses fonctionnalites.
- * L'implementation LinkedSet de Set et ses eventuelles fonctionnalites.  
+ * Regroupant l'ensemble des traitements sur :
+ * - LinkedList et ses fonctionnalites.
+ * - Vector et ses fonctionnalites.
+ * - L'implementation LinkedSet de Set et ses eventuelles fonctionnalites.
+ * 
  * @author MOUKHAFI Anass
  *
  * Nov 8, 2022
@@ -122,8 +123,16 @@ public class Main {
 		System.out.println(set.isEmpty()); // prints true
 		set.add(6);
 		System.out.println(set.contains(3)); // prints false
-		set.add(7);
+		System.out.println(set.contains(null)); // prints false
+		System.out.println(set.contains(6)); // prints true
+		set.add(7); // 6-7
+
+		System.out.println(set.remove(2)); // prints false because the set doesn't contain 2
+		System.out.println(set.remove(null));
+		// prints false because the set doesn't contain any null values
+		System.out.println(set.remove(6)); // prints true and 6 is removed
 		System.out.println(set);
+		set.clear();
 	}
 	
 	public static void main(String[] args) {

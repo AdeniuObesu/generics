@@ -83,12 +83,21 @@ public class LinkedSet<T> implements Set<T> {
 	}
 	
 	@Override
+	public void clear() {
+		if(!isEmpty()) {
+			value = null;
+			next.clear();
+			next = null;
+		}
+	}
+	
+	@Override
 	public String toString() {
 		String charSequence = "LinkedSet contains ";
 		if(size() == 0)
 			return charSequence.concat("no elements.");
 		for(LinkedSet<T> cursor = this; cursor.next!=null;) {
-			charSequence = charSequence.concat("-" + cursor.value);
+			charSequence = charSequence + cursor.value + "-";
 			cursor = cursor.next;
 		}
 		return charSequence;
