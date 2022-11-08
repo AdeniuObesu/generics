@@ -57,10 +57,10 @@ public class LinkedSet<T> implements Set<T> {
 	public boolean add(T item) {
 		if(item != null && !contains(item)) {
 			if(next != null)
-				next.add(item);
+				next.add(item); // Then just pass the item through
 			else {
 				LinkedSet<T> node;
-				node = new LinkedSet<>(this.value); // Node has the current value
+				node = new LinkedSet<>(value); // Node has the current value
 				this.value = item;
 				this.next = node;
 			}
@@ -87,7 +87,7 @@ public class LinkedSet<T> implements Set<T> {
 		String charSequence = "LinkedSet contains ";
 		if(size() == 0)
 			return charSequence.concat("no elements.");
-		for(LinkedSet<T> cursor = this; cursor!=null;) {
+		for(LinkedSet<T> cursor = this; cursor.next!=null;) {
 			charSequence = charSequence.concat("-" + cursor.value);
 			cursor = cursor.next;
 		}
