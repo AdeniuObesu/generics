@@ -119,7 +119,7 @@ public class Main {
 	// Tests all LinkedSet's implemented features
 	private void exp03() {
 		set = new LinkedSet<Integer>(); // starting by 1 as first content
-		System.out.println(set);
+		System.out.println(set.isEmpty());
 		set.add(6);
 		System.out.println(set.contains(3)); // prints false
 		set.add(7);

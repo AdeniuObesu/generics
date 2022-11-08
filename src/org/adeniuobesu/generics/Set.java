@@ -16,4 +16,6 @@ public interface Set<T> {
 	boolean add(T item);
 	
 	boolean contains(T item);
+
+	boolean isEmpty();
 }

@@ -23,6 +23,11 @@ public class LinkedSet<T> implements Set<T> {
 		this.next = null;
 	}
 	
+	public boolean isEmpty() {
+		return (value == null);
+		// for us this is an enough condition for emptiness
+	}
+	
 	@Override
 	public int size() {
 		if(value == null)
