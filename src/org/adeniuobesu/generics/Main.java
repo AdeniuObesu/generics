@@ -21,8 +21,8 @@ public class Main {
 	List<Integer> tempList;
 	
 	public Main() {
-//		exp01();
-//		exp02();
+		exp01();
+		exp02();
 		exp03();
 	}
 	// Tests all LinkedList's features
@@ -131,8 +131,12 @@ public class Main {
 		System.out.println(set.remove(null));
 		// prints false because the set doesn't contain any null values
 		System.out.println(set.remove(6)); // prints true and 6 is removed
-		System.out.println(set);
+		
+		System.out.println(set); // 7 remains in our list
 		set.clear();
+		System.out.println(set); // prints LinkedSet contains no elements.
+		set = null;
+		//END
 	}
 	
 	public static void main(String[] args) {

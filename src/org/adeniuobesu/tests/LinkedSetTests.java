@@ -92,6 +92,14 @@ public class LinkedSetTests {
 		assertFalse(setInteger.isEmpty());
 	}
 	
+	@Test
+	@DisplayName("Test de clear")
+	void testClear() {
+		setInteger.add(4);
+		setInteger.clear();
+		assertTrue(setInteger.isEmpty());
+	}
+	
 	@AfterEach
 	void tearDown() {
 		setInteger = null;
