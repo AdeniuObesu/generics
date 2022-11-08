@@ -241,7 +241,11 @@ public class LinkedListTests {
 		listInteger.add(9);
 		listInteger.add(3);
 		listInteger.add(1, 8);
-		assertEquals(8, listInteger.get(1));
+		listInteger.add(1, 17);
+		System.out.println(listInteger);
+		assertEquals(17, listInteger.get(1));
+		assertEquals(8, listInteger.get(2));
+//		assertEquals(1, listInteger.get(3));
 	}
 	
 	@AfterEach

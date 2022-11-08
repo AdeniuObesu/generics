@@ -190,6 +190,6 @@ public class Vector<T> implements List<T> {
 			tmp[i] = data[i];
 		}
 		data = tmp;
-		//TODO : make add(T item) call add(int index, T item) in order to behave the same way
+		//TODO make add(T item) call add(int index, T item) in order for them to behave the same way
 	}
 }
