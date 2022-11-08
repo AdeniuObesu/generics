@@ -21,7 +21,7 @@ public class Main {
 	
 	public Main() {
 //		exp01();
-		exp02();
+//		exp02();
 		exp03();
 	}
 	// Tests all LinkedList's features
@@ -118,7 +118,11 @@ public class Main {
 	
 	// Tests all LinkedSet's implemented features
 	private void exp03() {
-		
+		set = new LinkedSet<Integer>(); // starting by 1 as first content
+		System.out.println(set);
+		set.add(6);
+		System.out.println(set.contains(3)); // prints false
+		set.add(7);
 	}
 	
 	public static void main(String[] args) {

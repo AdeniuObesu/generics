@@ -13,6 +13,11 @@ public class LinkedSet<T> implements Set<T> {
 	private T value;
 	private LinkedSet<T> next;
 	
+	public LinkedSet(){
+		value = null;
+		next = null;
+	}
+	
 	public LinkedSet(T value) {
 		this.value = value;
 		this.next = null;
@@ -20,9 +25,12 @@ public class LinkedSet<T> implements Set<T> {
 	
 	@Override
 	public int size() {
-		if(next != null)
+		if(value == null)
+			return 0;
+		else if(next != null)
 			return 1 + next.size();
-		return 1;
+			else
+				return 1;
 	}
 
 	@Override
@@ -58,9 +66,10 @@ public class LinkedSet<T> implements Set<T> {
 
 	@Override
 	public boolean contains(T item) {
-		if(next == null) {
-			if(!value.equals(item))
-				return false;
+		if(value == null)
+			return false;
+		else if(next == null) {
+			return (value.equals(item));
 		} else {
 			if(value.equals(item))
 				return true;
@@ -70,11 +79,13 @@ public class LinkedSet<T> implements Set<T> {
 	
 	@Override
 	public String toString() {
-		String line = "";
-		for(LinkedSet<T> cursor = this; cursor!=null; cursor = cursor.next) {
-			line = line.concat("-" + cursor.value);
-			
+		String charSequence = "LinkedSet contains ";
+		if(size() == 0)
+			return charSequence.concat("no elements.");
+		for(LinkedSet<T> cursor = this; cursor!=null;) {
+			charSequence = charSequence.concat("-" + cursor.value);
+			cursor = cursor.next;
 		}
-		return line;
+		return charSequence;
 	}
 }
