@@ -24,7 +24,15 @@ public class Main {
 	}
 	// Tests LinkedList
 	private void exp01() {
-		
+		integerLinkedList = new LinkedList<>();
+		integerLinkedList.add(3);
+		integerLinkedList.add(2);
+		integerLinkedList.add(15);
+		integerLinkedList.add(3);
+		System.out.println(integerLinkedList);
+		integerLinkedList.clear();
+		System.out.println(integerLinkedList);
+		integerLinkedList = null;
 	}
 	
 	// Tests Vector

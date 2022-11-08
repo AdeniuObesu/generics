@@ -245,4 +245,19 @@ public class LinkedList<T> implements List<T> {
 			this.next = node;
 		} else next.add(index - 1, item);
 	}
+	
+	@Override
+	public String toString() {
+		String charSequence ="LinkedList contains ";
+		int size = size();
+		if(size == 0)
+			return charSequence.concat("no elements.");
+		charSequence = charSequence.concat(size() + " elements : (");
+		for(int i=0; i<size; i++) {
+			charSequence = charSequence.concat(get(i)+"");
+			if(i!=size-1)
+				charSequence = charSequence.concat("-");
+		}
+		return charSequence.concat(").");
+	}
 }
