@@ -239,7 +239,8 @@ public class LinkedList<T> implements List<T> {
 		checkElementIndex(index);
 		if(index == 0) {
 			LinkedList<T> node;
-			node = new LinkedList<>(value);
+			node = new LinkedList<>(this.value);
+			node.next = next;
 			value = item;
 			next = node;
 		} else next.add(index - 1, item);
