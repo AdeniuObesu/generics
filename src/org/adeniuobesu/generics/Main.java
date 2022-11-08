@@ -20,7 +20,7 @@ public class Main {
 	List<Integer> tempList;
 	
 	public Main() {
-		exp01();
+//		exp01();
 		exp02();
 		exp03();
 	}
@@ -72,7 +72,19 @@ public class Main {
 	
 	// Tests all Vector's features
 	private void exp02() {
+		list = new Vector<>();
 		
+		System.out.println(list.isEmpty()); // prints true
+		list.add(3);
+		System.out.println(list);
+		System.out.println(list.isEmpty()); // prints false
+		list.add(0, 4); // 4-3
+		System.out.println(list);
+		
+		List<Integer> tempList = new Vector<>();
+		tempList.add(4);
+		tempList.add(7);
+		System.out.println(tempList);
 	}
 	
 	// Tests all LinkedSet's implemented features

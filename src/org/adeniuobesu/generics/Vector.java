@@ -180,16 +180,33 @@ public class Vector<T> implements List<T> {
 	@Override
 	synchronized public void add(int index, T item) {
 		checkElementIndex(index);
-		int size = size();
-		Object[] tmp = new Object[size+1];
-		for(int i=0; i<index; i++) {
-			tmp[i] = data[i];
+		if(item != null) {
+			int size = size();
+			Object[] tmp = new Object[size+1];
+			for(int i=0; i<index; i++) {
+				tmp[i] = data[i];
+			}
+			tmp[index] = item;
+			for(int i=index+1; i<=data.length; i++) {
+				tmp[i] = data[i-1];
+			}
+			data = tmp;
 		}
-		tmp[index] = item;
-		for(int i=index+1; i<data.length; i++) {
-			tmp[i] = data[i];
-		}
-		data = tmp;
 		//TODO make add(T item) call add(int index, T item) in order for them to behave the same way
+	}
+	
+	@Override
+	public String toString() {
+		String charSequence ="Vector contains ";
+		int size = size();
+		if(size == 0)
+			return charSequence.concat("no elements.");
+		charSequence = charSequence.concat(size() + " elements : (");
+		for(int i=0; i<size; i++) {
+			charSequence = charSequence.concat(get(i)+"");
+			if(i!=size-1)
+				charSequence = charSequence.concat("-");
+		}
+		return charSequence.concat(").");
 	}
 }
