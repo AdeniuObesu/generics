@@ -194,10 +194,10 @@ public class LinkedList<T> implements List<T> {
 	
 
 	@Override
-	public org.mql.java.generics.Iterator<T> iterator() {
+	public org.mql.java.generics.util.Iterator<T> iterator() {
 		return new Iter();
 	}
-	private class Iter implements org.mql.java.generics.Iterator<T> {
+	private class Iter implements org.mql.java.generics.util.Iterator<T> {
 		private LinkedList<T> cursor;
 		private LinkedList<T> lastReturned;
 		private int index = 0;

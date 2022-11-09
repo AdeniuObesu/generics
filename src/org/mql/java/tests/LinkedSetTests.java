@@ -12,9 +12,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mql.java.generics.Iterator;
 import org.mql.java.generics.LinkedSet;
 import org.mql.java.generics.Set;
+import org.mql.java.generics.util.Iterator;
 
 /**
  * @author MOUKHAFI Anass

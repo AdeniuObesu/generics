@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.mql.java.generics;
+package org.mql.java.generics.util;
 
 /**
  * @author MOUKHAFI Anass

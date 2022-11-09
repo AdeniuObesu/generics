@@ -3,6 +3,8 @@
  */
 package org.mql.java.generics;
 
+import org.mql.java.generics.util.Iterator;
+
 /** LinkedSet class does not contains neither duplicates nor null values
  * @author MOUKHAFI Anass
  *

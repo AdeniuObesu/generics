@@ -1,5 +1,7 @@
 package org.mql.java.generics;
 
+import org.mql.java.generics.util.Iterable;
+
 /**
  * @author MOUKHAFI Anass
  * 

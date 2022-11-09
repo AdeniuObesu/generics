@@ -143,10 +143,10 @@ public class Vector<T> implements List<T> {
 	}
 
 	@Override
-	public synchronized org.mql.java.generics.Iterator<T> iterator() {
+	public synchronized org.mql.java.generics.util.Iterator<T> iterator() {
 		return new Iter();
 	}
-	private class Iter implements org.mql.java.generics.Iterator<T> {
+	private class Iter implements org.mql.java.generics.util.Iterator<T> {
 		private int cursor = 0; // Index of the next element to return
 		private int lastReturned = -1; // Index of the recently returned element, -1 if no such
 		
