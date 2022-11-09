@@ -1,7 +1,5 @@
 package org.mql.java.generics;
 
-import java.util.Iterator;
-
 
 /**
  * @author MOUKHAFI Anass

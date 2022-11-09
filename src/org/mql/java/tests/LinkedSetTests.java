@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mql.java.generics.Iterator;
 import org.mql.java.generics.LinkedSet;
 import org.mql.java.generics.Set;
 
@@ -99,6 +100,23 @@ public class LinkedSetTests {
 		setInteger.clear();
 		assertTrue(setInteger.isEmpty());
 	}
+	
+	@Test
+	@DisplayName("Test d'iterabilite")
+	void testIterability() {
+		setInteger.add(4);
+		setInteger.add(5);
+		setInteger.add(1);
+		
+		int sum = 0;
+		Iterator<Integer> iterator = setInteger.iterator();
+		while(iterator.hasNext()) {
+			sum += iterator.next();
+		}
+		
+		assertEquals(10, sum);
+	}
+	
 	
 	@AfterEach
 	void tearDown() {

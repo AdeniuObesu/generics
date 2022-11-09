@@ -8,7 +8,7 @@ package org.mql.java.generics;
  *
  * Nov 7, 2022
  */
-public interface Set<T> {
+public interface Set<T> extends Iterable<T>{
 	int size();
 	
 	boolean remove(T item);

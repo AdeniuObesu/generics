@@ -102,4 +102,31 @@ public class LinkedSet<T> implements Set<T> {
 		}
 		return charSequence;
 	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new Iter<>();
+	}
+	
+	private class Iter<T> implements Iterator<T> {
+		private LinkedSet<T> cursor;
+		private LinkedSet<T> lastReturned;
+		private int index = 0;
+		
+		public Iter() {
+			lastReturned = null;
+			cursor = (LinkedSet<T>) LinkedSet.this;
+		}
+		@Override
+		public boolean hasNext() {
+			return ( index < size() );
+		}
+		@Override
+		public T next() {
+			lastReturned = cursor;
+			cursor = cursor.next;
+			++index;
+			return lastReturned.value;
+		}
+	}
 }
