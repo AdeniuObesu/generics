@@ -260,10 +260,14 @@ public class LinkedList<T> implements List<T> {
 		}
 		return charSequence.concat(").");
 	}
-
+	
 	@Override
 	public boolean containsAll(List<T> list) {
-		// TODO Auto-generated method stub
-		return false;
+		for(LinkedList<T> cursor = this; cursor!=null;) {
+			if(!this.contains(cursor.value))
+				return false;
+			cursor = cursor.next;
+		}
+		return true;
 	}
 }

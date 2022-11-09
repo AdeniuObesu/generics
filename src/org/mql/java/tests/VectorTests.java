@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mql.java.generics.Iterator;
 import org.mql.java.generics.List;
 import org.mql.java.generics.Vector;
 import org.mql.java.model.Complexe;
@@ -173,8 +174,9 @@ public class VectorTests {
 		listInteger.add(4);
 		int sum = 0;
 		
-		for(Integer element : listInteger) {
-			sum += element;
+		Iterator<Integer> iterator = listInteger.iterator();
+		while(iterator.hasNext()) {
+			sum += iterator.next();
 		}
 		
 		assertEquals(10, sum);

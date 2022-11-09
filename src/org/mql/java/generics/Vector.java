@@ -143,10 +143,10 @@ public class Vector<T> implements List<T> {
 	}
 
 	@Override
-	public synchronized Iterator<T> iterator() {
+	public synchronized org.mql.java.generics.Iterator<T> iterator() {
 		return new Iter();
 	}
-	private class Iter implements Iterator<T> {
+	private class Iter implements org.mql.java.generics.Iterator<T> {
 		private int cursor = 0; // Index of the next element to return
 		private int lastReturned = -1; // Index of the recently returned element, -1 if no such
 		
@@ -208,5 +208,16 @@ public class Vector<T> implements List<T> {
 				charSequence = charSequence.concat("-");
 		}
 		return charSequence.concat(").");
+	}
+	
+	@Override
+	public boolean containsAll(List<T> list) {
+		int size = size();
+		for(int i=0; i<size;) {
+			if(!this.contains(get(i)))
+				return false;
+			++i;
+		}
+		return true;
 	}
 }

@@ -22,13 +22,7 @@ public interface List<T> extends Iterable<T> {
 	boolean contains(Object o);
 	
 	boolean containsAll(List<T> list);
-//	 {
-//		for(T item : list) {
-//			if(!this.contains(item))
-//				return false;
-//		}
-//		return true;
-//	}
+	
 	void clear();
 	
 	boolean equals(Object o);
