@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.generics;
+package org.mql.java.generics;
 
 /** LinkedSet class does not contains neither duplicates nor null values
  * @author MOUKHAFI Anass

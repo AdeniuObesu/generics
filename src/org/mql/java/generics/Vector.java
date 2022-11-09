@@ -1,4 +1,4 @@
-package org.adeniuobesu.generics;
+package org.mql.java.generics;
 
 import java.util.Iterator;
 

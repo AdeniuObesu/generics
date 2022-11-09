@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.tests.exercices;
+package org.mql.java.tests.exercices;
 
 /**
  * @author MOUKHAFI Anass

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.tests;
+package org.mql.java.tests;
 
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import org.junit.platform.launcher.Launcher;

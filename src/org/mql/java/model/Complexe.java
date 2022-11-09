@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.model;
+package org.mql.java.model;
 
 /**
  * @author MOUKHAFI Anass

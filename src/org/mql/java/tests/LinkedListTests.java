@@ -1,4 +1,4 @@
-package org.adeniuobesu.tests;
+package org.mql.java.tests;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
-import org.adeniuobesu.generics.LinkedList;
-import org.adeniuobesu.generics.List;
-import org.adeniuobesu.generics.Vector;
-import org.adeniuobesu.model.Complexe;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mql.java.generics.LinkedList;
+import org.mql.java.generics.List;
+import org.mql.java.generics.Vector;
+import org.mql.java.model.Complexe;
 
 /**
  * @author MOUKHAFI Anass

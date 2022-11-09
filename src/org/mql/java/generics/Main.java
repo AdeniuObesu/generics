@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.generics;
+package org.mql.java.generics;
 
 /** Elle s'agit de la classe principale des tests
  * Regroupant l'ensemble des traitements sur :

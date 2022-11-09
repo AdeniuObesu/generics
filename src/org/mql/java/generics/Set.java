@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.adeniuobesu.generics;
+package org.mql.java.generics;
 
 /**
  * @author MOUKHAFI Anass

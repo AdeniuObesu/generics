@@ -1,19 +1,19 @@
 /**
  * 
  */
-package org.adeniuobesu.tests;
+package org.mql.java.tests;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.adeniuobesu.generics.LinkedSet;
-import org.adeniuobesu.generics.Set;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mql.java.generics.LinkedSet;
+import org.mql.java.generics.Set;
 
 /**
  * @author MOUKHAFI Anass
